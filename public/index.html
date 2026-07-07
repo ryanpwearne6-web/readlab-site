@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Read Lab — The questions that turn 'fine' into a real conversation</title>
+<meta name="description" content="Read Lab gives parents the questions teachers use to build their child's emotional literacy, empathy, resilience and connection — plus reading resources for when they're ready. A teacher's guide for parents." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#EFF5FD;
+    --white:#FFFFFF;
+    --brand:#1E50D4;
+    --brand-deep:#132E86;
+    --navy:#101F52;
+    --ink:#16223F;
+    --muted:#5C6788;
+    --sky:#DCEAFB;
+    --sky-deep:#C3DBF6;
+    --gold:#FFB627;
+    --gold-deep:#F59E0B;
+    --gold-wash:#FFF1D6;
+    --line:#D8E4F5;
+    --shadow:0 18px 50px -22px rgba(16,31,82,.34);
+    --shadow-sm:0 8px 22px -14px rgba(16,31,82,.4);
+    --radius:20px;
+    --maxw:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Fredoka',system-ui,sans-serif;line-height:1.1;letter-spacing:-.01em;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand);display:inline-flex;align-items:center;gap:8px}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Figtree',sans-serif;font-weight:600;font-size:1rem;padding:14px 24px;border-radius:999px;cursor:pointer;border:2px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .18s ease;white-space:nowrap}
+  .btn-primary{background:var(--gold);color:var(--navy);box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:var(--gold-deep);transform:translateY(-2px)}
+  .btn-brand{background:var(--brand);color:#fff}
+  .btn-brand:hover{background:var(--brand-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep);transform:translateY(-2px)}
+  .btn-lg{padding:16px 30px;font-size:1.06rem}
+  .arrow{transition:transform .18s ease}
+  .btn:hover .arrow{transform:translateX(3px)}
+  a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+  /* brand mark */
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Fredoka';font-weight:600;font-size:1.4rem;letter-spacing:.01em;color:var(--brand-deep)}
+  .brand .bk{width:40px;height:40px;border-radius:12px;background:var(--sky);display:grid;place-items:center;flex-shrink:0}
+  .brand .bk svg{width:24px;height:24px}
+  .brand span.rl{text-transform:uppercase}
+  .brand span.rl em{font-style:normal;color:var(--brand)}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(239,245,253,.85);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s ease, box-shadow .2s ease}
+  header.nav.scrolled{border-color:var(--line);box-shadow:0 6px 20px -18px rgba(16,31,82,.5)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a.link{font-weight:500;color:var(--muted);font-size:.98rem;transition:color .15s}
+  .nav-links a.link:hover{color:var(--ink)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--ink)}
+
+  /* HERO */
+  .hero{position:relative;padding:64px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,3.9rem);font-weight:600;margin:18px 0 20px;color:var(--navy)}
+  .hero h1 .u{position:relative;white-space:nowrap;color:var(--brand)}
+  .hero h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.3em;background:var(--gold);z-index:-1;border-radius:4px;opacity:.85}
+  .hero p.lede{font-size:1.18rem;color:var(--muted);max-width:33em;margin-bottom:28px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+  .cred{display:flex;align-items:center;gap:13px;font-size:.96rem;color:var(--muted)}
+  .cred .badge{display:grid;place-items:center;min-width:52px;height:52px;padding:0 12px;border-radius:14px;background:var(--sky);color:var(--brand-deep);font-family:'Fredoka';font-weight:600;font-size:1.15rem}
+  .cred strong{color:var(--ink)}
+
+  /* Question card signature */
+  .qcard-stack{position:relative;padding:14px}
+  .qcard-stack::before,.qcard-stack::after{content:"";position:absolute;inset:26px 6px auto 6px;height:100%;background:var(--white);border:1px solid var(--line);border-radius:24px;z-index:0}
+  .qcard-stack::before{transform:rotate(-3deg);opacity:.5}
+  .qcard-stack::after{transform:rotate(2.5deg);opacity:.75}
+  .qcard{position:relative;z-index:2;background:var(--white);border:1px solid var(--line);border-radius:24px;padding:30px 30px 28px;box-shadow:var(--shadow);min-height:360px;display:flex;flex-direction:column}
+  .qcard .qc-cat{font-size:.74rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#fff;background:var(--brand);align-self:flex-start;padding:6px 13px;border-radius:999px;margin-bottom:20px}
+  .qcard .qc-q{font-family:'Fredoka';font-weight:600;font-size:1.7rem;color:var(--navy);line-height:1.16;margin-bottom:20px}
+  .qcard .qc-why{color:var(--muted);font-size:1rem;border-top:1px dashed var(--line);padding-top:16px;margin-bottom:16px;flex:1}
+  .qcard .qc-why b{color:var(--brand-deep);font-weight:700}
+  .qcard .qc-say{background:var(--gold-wash);border-radius:14px;padding:13px 16px;font-size:.96rem}
+  .qcard .qc-say span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:3px}
+  .qcard .qc-say em{font-style:normal;font-weight:600;color:var(--ink)}
+  .qc-dots{display:flex;gap:7px;justify-content:center;margin-top:18px}
+  .qc-dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .2s, transform .2s}
+  .qc-dots i.on{background:var(--brand);transform:scale(1.25)}
+  .qcard-fade{animation:qfade .5s ease both}
+  @keyframes qfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* trust strip */
+  .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
+  .trust-inner{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 24px;align-items:center;color:var(--muted);font-weight:500;font-size:.98rem}
+  .trust-inner .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+  /* section shell */
+  section.block{padding:84px 0}
+  .sec-head{max-width:660px;margin-bottom:44px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:600;margin:16px 0 14px;color:var(--navy)}
+  .sec-head p{font-size:1.1rem;color:var(--muted)}
+
+  /* INSIGHT banner */
+  .insight{background:var(--navy);color:#DCE7FB}
+  .insight .wrap{padding:56px 24px;text-align:center}
+  .insight .big{font-family:'Fredoka';font-weight:500;font-size:clamp(1.5rem,3.4vw,2.3rem);max-width:20em;margin:0 auto;line-height:1.24;color:#fff}
+  .insight .big .hl{color:var(--gold)}
+  .insight p.sub{color:#A7BCE6;margin-top:18px;font-size:1.05rem;max-width:34em;margin-left:auto;margin-right:auto}
+
+  /* MOMENTS grid */
+  .moments-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .moment{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .2s ease, box-shadow .2s ease}
+  .moment:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .moment .m-when{font-size:.74rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+  .moment .m-ico{font-size:1.15rem}
+  .moment .m-q{font-family:'Fredoka';font-weight:600;font-size:1.24rem;color:var(--navy);margin-bottom:8px;line-height:1.22}
+  .moment .m-note{color:var(--muted);font-size:.95rem}
+  .moment.more{background:var(--brand);border-color:var(--brand);display:flex;flex-direction:column;justify-content:center}
+  .moment.more .m-when{color:#BFD4FB}
+  .moment.more .m-q{color:#fff}
+  .moment.more .m-note{color:#CDDCFB}
+
+  /* WHY */
+  .why{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .w-card{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding:26px;border:1px solid var(--line);border-radius:var(--radius);transition:transform .2s ease, box-shadow .2s ease}
+  .w-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .w-ico{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;font-size:1.5rem;flex-shrink:0;background:var(--sky)}
+  .w-ico.g{background:var(--gold-wash)}
+  .w-card h3{font-size:1.24rem;font-weight:600;margin-bottom:8px;color:var(--navy)}
+  .w-card p{color:var(--muted);font-size:1rem}
+
+  /* bridge quote */
+  .bridge{background:var(--sky);padding:60px 0}
+  .bridge .wrap{max-width:900px;text-align:center}
+  .bridge blockquote{font-family:'Fredoka';font-weight:500;font-size:clamp(1.4rem,3vw,2rem);color:var(--brand-deep);line-height:1.3;position:relative}
+  .bridge cite{display:block;margin-top:16px;font-style:normal;font-weight:600;color:var(--muted);font-size:.95rem;font-family:'Figtree'}
+
+  /* FREE band */
+  .free-band{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;border-radius:26px;padding:40px;display:grid;grid-template-columns:1.4fr auto;gap:30px;align-items:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .free-band::after{content:"free";position:absolute;right:-14px;bottom:-30px;font-family:'Fredoka';font-weight:700;font-size:9rem;color:rgba(255,255,255,.10);letter-spacing:-.02em}
+  .free-band .fb-tag{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .free-band h3{font-size:1.9rem;font-weight:600;margin:8px 0 10px}
+  .free-band p{color:#D6E4FC;max-width:36em}
+  .free-band .fb-list{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .free-band .fb-list span{font-size:.85rem;font-weight:600;background:rgba(255,255,255,.16);padding:6px 12px;border-radius:999px}
+
+  /* SHOP */
+  .shop-group{margin-top:48px}
+  .shop-group h3.grp{font-size:1.4rem;font-weight:600;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .tag-pill{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:5px 11px;border-radius:999px}
+  .tag-primary{color:#fff;background:var(--brand)}
+  .tag-second{color:var(--brand-deep);background:var(--sky-deep)}
+  .shop-group .grp-sub{color:var(--muted);margin-bottom:22px;max-width:52em}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .p-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+  .p-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .p-card.feature{border-color:var(--brand);box-shadow:0 0 0 3px var(--sky)}
+  .p-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px}
+  .p-set{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--brand);padding:5px 11px;border-radius:999px}
+  .p-set.free{background:var(--gold);color:var(--navy)}
+  .p-price{font-family:'Fredoka';font-weight:600;font-size:1.5rem;color:var(--navy);white-space:nowrap}
+  .p-price .cur{font-size:.9rem;color:var(--muted);font-weight:600}
+  .p-price.freep{color:var(--brand)}
+  .p-card h4{font-family:'Fredoka';font-weight:600;font-size:1.22rem;margin-bottom:9px;color:var(--navy)}
+  .p-card p.desc{color:var(--muted);font-size:.96rem;flex:1;margin-bottom:16px}
+  .p-incl{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+  .p-incl span{font-size:.78rem;font-weight:600;color:var(--ink);background:var(--paper);border:1px solid var(--line);padding:5px 10px;border-radius:8px}
+  .code{font-size:.82rem;font-weight:600;color:var(--gold-deep);background:var(--gold-wash);border:1px dashed var(--gold);border-radius:8px;padding:8px 11px;margin-bottom:14px;text-align:center}
+  .code b{font-family:'Fredoka';letter-spacing:.03em}
+  .p-card .btn{width:100%;justify-content:center}
+  .checkout-note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:34px;display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
+  .divider-soft{height:1px;background:var(--line);margin:64px 0 0}
+
+  /* reading pillar */
+  .reading-band{margin-top:26px;background:var(--sky);border:1px solid var(--sky-deep);border-radius:26px;padding:34px}
+  .reading-band h3{font-size:1.5rem;font-weight:600;color:var(--brand-deep);margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .reading-band p.rb-sub{color:var(--brand-deep);opacity:.85;max-width:48em;margin-bottom:22px}
+  .reading-band .p-card{background:var(--white)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
+  .about-photo{aspect-ratio:4/5;border-radius:var(--radius);background:radial-gradient(120% 90% at 20% 10%, var(--sky), transparent 60%),linear-gradient(160deg,var(--white),var(--paper));border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .about-photo .ph-note{color:var(--muted);font-size:.9rem;text-align:center;padding:0 20px}
+  .about-body h2{font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:600;margin:16px 0 18px;color:var(--navy)}
+  .about-body p{color:var(--muted);font-size:1.08rem;margin-bottom:16px}
+  .about-body p strong{color:var(--ink)}
+  .about-quote{border-left:3px solid var(--gold);padding-left:20px;font-family:'Fredoka';font-weight:500;font-size:1.2rem;color:var(--navy);margin:22px 0}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .q-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px}
+  .q-stars{color:var(--gold);font-size:1.05rem;letter-spacing:2px;margin-bottom:12px}
+  .q-card p{font-size:1.02rem;margin-bottom:16px}
+  .q-who{font-weight:700;font-size:.95rem}
+  .q-who span{color:var(--muted);font-weight:500}
+  .placeholder-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:var(--sky);padding:4px 9px;border-radius:6px;margin-bottom:12px}
+
+  /* final CTA */
+  .final-cta{background:linear-gradient(135deg,var(--navy),var(--brand-deep));border-radius:28px;padding:56px 40px;text-align:center;color:#fff;box-shadow:var(--shadow)}
+  .final-cta h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:600;margin-bottom:14px}
+  .final-cta p{font-size:1.14rem;color:#C6D6F5;max-width:36em;margin:0 auto 26px}
+  .final-cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
+  .final-cta .btn-ghost:hover{background:rgba(255,255,255,.14);color:#fff;border-color:#fff}
+
+  /* footer */
+  footer.ft{background:var(--navy);color:#AEC2EC;padding:56px 0 30px}
+  .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  footer.ft .brand{color:#fff}
+  footer.ft .brand .bk{background:rgba(255,255,255,.1)}
+  footer.ft .brand span.rl em{color:var(--gold)}
+  .ft-about{max-width:30em;font-size:.98rem;color:#8AA2D4;margin-top:14px}
+  .ft-col h5{color:#fff;font-family:'Fredoka';font-weight:600;font-size:1rem;margin-bottom:14px}
+  .ft-col a{display:block;color:#9DB4E2;margin-bottom:9px;font-size:.96rem;transition:color .15s}
+  .ft-col a:hover{color:#fff}
+  .ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.86rem;color:#7B93C6}
+  .socials{display:flex;gap:12px}
+  .socials a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#DCE7FB;transition:background .15s;font-weight:700}
+  .socials a:hover{background:var(--gold);color:var(--navy)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .mobile-panel{display:none;position:fixed;inset:74px 0 auto 0;background:var(--white);border-bottom:1px solid var(--line);padding:18px 24px 24px;z-index:49;box-shadow:var(--shadow)}
+  .mobile-panel.open{display:block}
+  .mobile-panel a.link{display:block;padding:12px 0;font-weight:600;border-bottom:1px solid var(--line);color:var(--ink)}
+  .mobile-panel .btn{margin-top:16px;width:100%;justify-content:center}
+
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:36px}
+    .qcard-stack{max-width:430px;margin:0 auto}
+    .moments-grid,.cards,.quotes{grid-template-columns:1fr 1fr}
+    .why-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:32px}
+    .about-photo{max-width:360px}
+    .free-band{grid-template-columns:1fr;text-align:left}
+    .ft-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    .nav-links,.nav-cta .btn{display:none}
+    .menu-btn{display:block}
+    section.block{padding:60px 0}
+    .moments-grid,.cards,.quotes{grid-template-columns:1fr}
+    .free-band{padding:32px 26px}
+    .final-cta{padding:44px 26px}
+    .reading-band{padding:26px 22px}
+    .ft-grid{grid-template-columns:1fr}
+    .hero h1{font-size:2.3rem}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <span class="bk"><svg viewBox="0 0 24 24" fill="none" stroke="#1E50D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C10.5 4.3 8 3.8 4.5 4.2v13c3.5-.4 6 .1 7.5 1.3 1.5-1.2 4-1.7 7.5-1.3v-13C16 3.8 13.5 4.3 12 5.5Z"/><path d="M12 5.5v13"/><path d="M6.6 8.2c1.2-.15 2.4-.05 3.4.4M6.6 11c1.2-.15 2.4-.05 3.4.4"/></svg></span>
+      <span class="rl">Read&nbsp;<em>Lab</em></span>
+    </a>
+    <nav class="nav-links">
+      <a class="link" href="#moments">The Questions</a>
+      <a class="link" href="#why">Why it works</a>
+      <a class="link" href="#resources">Resources</a>
+      <a class="link" href="#about">About</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="link" href="#resources" style="font-weight:600;color:var(--ink)">Shop</a>
+      <a class="btn btn-primary" href="#free">Get the free cards <span class="arrow">→</span></a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-panel" id="mobilePanel">
+  <a class="link" href="#moments">The Questions</a>
+  <a class="link" href="#why">Why it works</a>
+  <a class="link" href="#resources">Resources</a>
+  <a class="link" href="#about">About</a>
+  <a class="btn btn-primary" href="#free">Get the free cards <span class="arrow">→</span></a>
+</div>
+
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">A teacher's guide for parents</span>
+      <h1 class="reveal">The questions that turn <span class="u">"fine"</span> into a real conversation.</h1>
+      <p class="lede reveal">Teachers ask children different questions than parents do — and those questions build emotional awareness, empathy, resilience and connection. Read Lab hands you 21 of them, why each one works, and exactly what to say next. Start tonight with just one.</p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary btn-lg" href="#free">Get the free Question Cards <span class="arrow">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="#why">See why they work</a>
+      </div>
+      <div class="cred reveal">
+        <span class="badge">100+</span>
+        <span>Created by an Australian primary teacher who has guided <strong>hundreds of children</strong> — now shared with parents at home.</span>
+      </div>
+    </div>
+
+    <div class="qcard-stack reveal" aria-live="off">
+      <div class="qcard" id="qcard">
+        <span class="qc-cat" id="qcCat">After school</span>
+        <div class="qc-q" id="qcQ">"What's something that surprised you today?"</div>
+        <div class="qc-why" id="qcWhy"><b>Why it works:</b> "How was school" is too big. Surprise is specific — it makes them scan their day for one moment, and that moment is the door into everything else.</div>
+        <div class="qc-say"><span>Say this after</span><em id="qcSay">"I wouldn't have expected that either."</em></div>
+      </div>
+      <div class="qc-dots" id="qcDots" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <span>Emotional literacy</span><span class="dot"></span>
+    <span>Empathy &amp; perspective</span><span class="dot"></span>
+    <span>Resilience &amp; confidence</span><span class="dot"></span>
+    <span>Everyday connection</span><span class="dot"></span>
+    <span>Reading, when they're ready</span>
+  </div>
+</div>
+
+<!-- INSIGHT -->
+<div class="insight">
+  <div class="wrap">
+    <p class="big">"How was your day?" gets <span class="hl">"fine."</span> The right question gets you everything else.</p>
+    <p class="sub">Every question in Read Lab was chosen for one reason: it opens a door most parents don't know is there.</p>
+  </div>
+</div>
+
+<!-- MOMENTS -->
+<section class="block" id="moments">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Seven everyday moments</span>
+      <h2>A question for every part of the day</h2>
+      <p>You don't need a big talk. You need the right small question at the right moment. Pick the moment, ask just one — one question per conversation is enough.</p>
+    </div>
+    <div class="moments-grid">
+      <div class="moment reveal">
+        <div class="m-when"><span class="m-ico">🍽️</span> At dinner</div>
+        <div class="m-q">"What was the hardest part of your day?"</div>
+        <p class="m-note">Teaches them to name difficulty without fear — so they stop carrying it alone.</p>
+      </div>
+      <div class="moment reveal">
+        <div class="m-when"><span class="m-ico">🌙</span> At bedtime</div>
+        <div class="m-q">"What made you laugh today?"</div>
+        <p class="m-note">Ends the day scanning for joy instead of replaying what went wrong.</p>
+      </div>
+      <div class="moment reveal">
+        <div class="m-when"><span class="m-ico">🎒</span> After school</div>
+        <div class="m-q">"Was anyone left out today?"</div>
+        <p class="m-note">Children who notice exclusion become children who include.</p>
+      </div>
+      <div class="moment reveal">
+        <div class="m-when"><span class="m-ico">☀️</span> In the morning</div>
+        <div class="m-q">"Who might need a friend today?"</div>
+        <p class="m-note">Gives them a purpose beyond themselves — they arrive braver.</p>
+      </div>
+      <div class="moment reveal">
+        <div class="m-when"><span class="m-ico">💙</span> When they're upset</div>
+        <div class="m-q">"Where do you feel that in your body?"</div>
+        <p class="m-note">Locating a feeling makes it manageable instead of overwhelming.</p>
+      </div>
+      <div class="moment reveal more">
+        <div class="m-when">+ two more moments</div>
+        <div class="m-q">When they've given up · When they won't talk</div>
+        <p class="m-note">21 questions across 7 moments — each with why it works and the phrase to say after. Get them all free below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="block why" id="why">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Why it works</span>
+      <h2>Small questions, real development</h2>
+      <p>These aren't just nice chats. Each question quietly builds the social and emotional skills children carry for life — grounded in how their developing brains work.</p>
+    </div>
+    <div class="why-grid">
+      <div class="w-card reveal">
+        <div class="w-ico">🫧</div>
+        <div><h3>Naming a feeling calms it</h3><p>When a child names or locates an emotion, the thinking part of the brain comes online and big feelings become manageable. "Name it to tame it" is a skill — and it's trainable.</p></div>
+      </div>
+      <div class="w-card reveal">
+        <div class="w-ico">🤝</div>
+        <div><h3>Empathy is trained, not born</h3><p>Questions like "how do you think they felt?" build the habit of seeing through someone else's eyes. Repeated often, perspective-taking becomes second nature.</p></div>
+      </div>
+      <div class="w-card reveal">
+        <div class="w-ico g">🌱</div>
+        <div><h3>Resilience grows from ownership</h3><p>Asking "which part can't you do?" instead of solving it hands the problem back. Children build an internal compass and the belief that they can find their own way through.</p></div>
+      </div>
+      <div class="w-card reveal">
+        <div class="w-ico g">💬</div>
+        <div><h3>Connection is the foundation</h3><p>Ten seconds of the right question, every day, builds the secure, trusting relationship that everything else — confidence, learning, reading — grows from.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE QUOTE (from the Read Lab reading guide) -->
+<div class="bridge">
+  <div class="wrap reveal">
+    <blockquote>"Early reading success is more strongly linked to supportive adult interaction than to how early a child starts reading."</blockquote>
+    <cite>— from the Read Lab reading guide. Connection comes first. Reading grows from it.</cite>
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<section class="block" id="resources">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Resources</span>
+      <h2>Start free. Everything you need, in the right order.</h2>
+      <p>Begin with the Question Cards — the tool parents reach for most — then add reading resources whenever your child is ready.</p>
+    </div>
+
+    <!-- FREE BAND -->
+    <div class="free-band reveal" id="free">
+      <div>
+        <span class="fb-tag">Free · Start here</span>
+        <h3>The Read Lab Question Cards</h3>
+        <p>21 questions teachers use that most parents don't — across 7 everyday moments. Each one comes with why it works and the exact phrase to say after. Get the printable one-pager for your fridge, plus the full guide.</p>
+        <div class="fb-list"><span>🖨️ Printable cards</span><span>📖 Full guide</span><span>7 moments · 21 questions</span></div>
+      </div>
+      <a class="btn btn-primary btn-lg" data-buy="qcards" href="#">Get the free cards <span class="arrow">→</span></a>
+    </div>
+
+    <!-- DEVELOPMENT (primary) -->
+    <div class="shop-group">
+      <h3 class="grp reveal">Connection &amp; development <span class="tag-pill tag-primary">Start here</span></h3>
+      <p class="grp-sub reveal">The tools parents love most — for talking, feeling and growing together.</p>
+      <div class="cards">
+        <div class="p-card feature reveal">
+          <div class="p-top"><span class="p-set free">Free</span><span class="p-price freep">Free</span></div>
+          <h4>Question Cards — Printable</h4>
+          <p class="desc">The one-page fridge version. All the questions at a glance, ready to print and stick where you'll see them.</p>
+          <div class="p-incl"><span>7 moments</span><span>Print &amp; go</span></div>
+          <a class="btn btn-primary" data-buy="qcards-print" href="#">Download free <span class="arrow">→</span></a>
+        </div>
+        <div class="p-card feature reveal">
+          <div class="p-top"><span class="p-set free">Free</span><span class="p-price freep">Free</span></div>
+          <h4>Question Cards — Full Guide</h4>
+          <p class="desc">The complete 10-page guide: every question with why it works in your child's brain and the phrase to say after.</p>
+          <div class="p-incl"><span>21 questions</span><span>Why &amp; how</span><span>Follow-ups</span></div>
+          <a class="btn btn-primary" data-buy="qcards-full" href="#">Download free <span class="arrow">→</span></a>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-top"><span class="p-set">New every day</span></div>
+          <h4>A new question every day</h4>
+          <p class="desc">"New questions, phrases and teacher insights every day" — so the conversation never runs dry. Follow along and be first to new drops.</p>
+          <div class="p-incl"><span>Daily prompts</span><span>Coming soon</span></div>
+          <a class="btn btn-brand" data-social="tiktok" href="#">Follow @read.lab <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-soft"></div>
+
+    <!-- READING (secondary) -->
+    <div class="reading-band shop-group reveal">
+      <h3>When they're ready to read <span class="tag-pill tag-second">Reading pillar</span></h3>
+      <p class="rb-sub">Read Lab began with reading, and it's still here for when the time comes. Structured letter-sounds, decodable books, games and readers — plus parent guides to walk you through it. Checkout is on Payhip.</p>
+      <div class="cards">
+        <div class="p-card reveal">
+          <div class="p-top"><span class="p-set free">Free</span><span class="p-price freep">Free</span></div>
+          <h4>Get Reading Right! guide</h4>
+          <p class="desc">The Big 6 reading strategies and the science of reading, broken down for parents. A free, gentle place to begin.</p>
+          <div class="p-incl"><span>Free download</span><span>The Big 6</span></div>
+          <a class="btn btn-brand" data-buy="reading-guide" href="#">Download free <span class="arrow">→</span></a>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-top"><span class="p-set">Guides</span><span class="p-price"><span class="cur">A$</span>19–39</span></div>
+          <h4>Parent reading guides</h4>
+          <p class="desc">"Phonics for Parents" and the full "Teach Your Child to Read at Home" playbook — teach reading with confidence, no training needed.</p>
+          <div class="code">50% off · codes <b>PARENTGUIDE50</b> / <b>READATHOME50</b></div>
+          <a class="btn btn-brand" data-buy="read-at-home" href="#">Browse guides <span class="arrow">→</span></a>
+        </div>
+        <div class="p-card reveal">
+          <div class="p-top"><span class="p-set">Sets 1–5</span><span class="p-price"><span class="cur">A$</span>0–19</span></div>
+          <h4>Letter-Sound Sets</h4>
+          <p class="desc">The full phonics progression — words, decodable books, games and readers. Set 1 is free to start; Sets 2–5 build to independent reading.</p>
+          <div class="p-incl"><span>Set 1 free</span><span>Words · Books · Games</span></div>
+          <a class="btn btn-brand" data-buy="store" href="#">See all sets <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="checkout-note">
+      <span style="color:var(--brand)">🔒</span> Checkout &amp; instant downloads are handled securely by Payhip. You'll be taken there to complete your order.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block" id="about" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <div class="ph-note">Your friendly, approachable<br/>photo goes here</div>
+    </div>
+    <div class="about-body reveal">
+      <span class="eyebrow">About Read Lab</span>
+      <h2>Hi, I'm the teacher behind Read Lab.</h2>
+      <p>I'm a passionate primary teacher who believes the best learning happens through authentic, strong relationships — and that the way we talk to children shapes who they become.</p>
+      <p>In the classroom I noticed the questions teachers ask do something ordinary conversation doesn't: they build <strong>emotional awareness, empathy and resilience</strong>. Parents kept asking how I do it, so I turned it into simple cards any family can use at the dinner table.</p>
+      <div class="about-quote">"The goal isn't to get your child to talk more. It's to change what they talk about."</div>
+      <p>As a (relatively new!) proud parent myself, I know how little time there is. Read Lab is built for real family life — one small question at a time. And when your child is ready to read, those resources are here too.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Loved by parents</span>
+      <h2>The questions that changed dinner</h2>
+    </div>
+    <div class="quotes">
+      <div class="q-card reveal">
+        <span class="placeholder-tag">Add your review</span>
+        <div class="q-stars">★★★★★</div>
+        <p>Paste a real parent review here — ideally one about a moment their child opened up. That story is what turns a browser into a subscriber.</p>
+        <div class="q-who">Parent name <span>· Sydney</span></div>
+      </div>
+      <div class="q-card reveal">
+        <span class="placeholder-tag">Add your review</span>
+        <div class="q-stars">★★★★★</div>
+        <p>A second short quote about connection — "my son actually told me about his day for the first time."</p>
+        <div class="q-who">Parent name <span>· Melbourne</span></div>
+      </div>
+      <div class="q-card reveal">
+        <span class="placeholder-tag">Add your review</span>
+        <div class="q-stars">★★★★★</div>
+        <p>A third quote about how easy it was to start — reassurance for a busy, tired parent.</p>
+        <div class="q-who">Parent name <span>· Brisbane</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="final-cta reveal">
+      <h2>Start with one question tonight.</h2>
+      <p>Just one. Pick the moment, ask the question, and see what they tell you. The free cards make it easy to remember.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary btn-lg" data-buy="qcards" href="#">Get the free Question Cards <span class="arrow">→</span></a>
+        <a class="btn btn-ghost btn-lg" href="#resources">Browse all resources</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ft" id="contact">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="brand" style="font-size:1.5rem">
+          <span class="bk"><svg viewBox="0 0 24 24" fill="none" stroke="#FFB627" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C10.5 4.3 8 3.8 4.5 4.2v13c3.5-.4 6 .1 7.5 1.3 1.5-1.2 4-1.7 7.5-1.3v-13C16 3.8 13.5 4.3 12 5.5Z"/><path d="M12 5.5v13"/><path d="M6.6 8.2c1.2-.15 2.4-.05 3.4.4M6.6 11c1.2-.15 2.4-.05 3.4.4"/></svg></span>
+          <span class="rl">Read&nbsp;<em>Lab</em></span>
+        </div>
+        <p class="ft-about">A teacher's guide for parents. Helping you raise children who can talk, feel, connect — and read. New questions, phrases and teacher insights every day.</p>
+        <div class="socials" style="margin-top:18px">
+          <a data-social="tiktok" href="#" aria-label="TikTok">♪</a>
+          <a data-social="instagram" href="#" aria-label="Instagram">◎</a>
+          <a data-social="youtube" href="#" aria-label="YouTube">▷</a>
+          <a data-social="facebook" href="#" aria-label="Facebook">f</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h5>Explore</h5>
+        <a href="#moments">The questions</a>
+        <a href="#why">Why it works</a>
+        <a href="#resources">Resources &amp; shop</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="ft-col">
+        <h5>Get in touch</h5>
+        <a data-buy="qcards" href="#">Free Question Cards</a>
+        <a data-buy="store" href="#">Visit the full store</a>
+        <a data-contact="email" href="#">Email Read Lab</a>
+        <a data-social="tiktok" href="#">Follow @read.lab</a>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© <span id="year"></span> Read Lab. All rights reserved.</span>
+      <span>Secure checkout &amp; downloads powered by Payhip.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== CONFIG: edit your real links here (one place) ===== */
+  const STORE = "https://payhip.com/ReadLab";
+  const LINKS = {
+    store:          STORE,
+    qcards:         STORE,   // main free Question Cards product page
+    "qcards-print": STORE,   // FREE - Question Cards Printout
+    "qcards-full":  STORE,   // FREE - Question Cards Full
+    "reading-guide":STORE,   // FREE - Step by Step Reading Guide (Get Reading Right!)
+    "read-at-home": STORE
+  };
+  const SOCIAL = {
+    tiktok:    "https://www.tiktok.com/@read.lab",
+    instagram: "https://www.instagram.com/read.lab_",
+    youtube:   "#",
+    facebook:  "#"
+  };
+  const CONTACT_EMAIL = "hello@readlab.example"; // <- change to your real email
+
+  document.querySelectorAll("[data-buy]").forEach(el=>{
+    const key = el.getAttribute("data-buy");
+    el.href = LINKS[key] || STORE; el.target="_blank"; el.rel="noopener";
+  });
+  document.querySelectorAll("[data-social]").forEach(el=>{
+    const key = el.getAttribute("data-social"); const url = SOCIAL[key] || "#";
+    el.href = url; if(url!=="#"){ el.target="_blank"; el.rel="noopener"; }
+  });
+  document.querySelectorAll('[data-contact="email"]').forEach(el=>{ el.href="mailto:"+CONTACT_EMAIL; });
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const nav = document.getElementById("nav");
+  addEventListener("scroll",()=>nav.classList.toggle("scrolled", scrollY>10));
+
+  const mb = document.getElementById("menuBtn"), panel = document.getElementById("mobilePanel");
+  mb.addEventListener("click",()=>{ const open=panel.classList.toggle("open"); mb.setAttribute("aria-expanded",open); });
+  panel.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{panel.classList.remove("open");mb.setAttribute("aria-expanded",false);}));
+
+  /* Question-card cycler — real questions from the free deck */
+  const CARDS = [
+    {cat:"After school", q:'"What\u2019s something that surprised you today?"', why:'"How was school" is too big. Surprise is specific \u2014 it makes them scan their day for one moment, and that moment is the door into everything else.', say:'"I wouldn\u2019t have expected that either."'},
+    {cat:"At dinner", q:'"How do you think they felt?"', why:'Builds the habit of seeing through someone else\u2019s eyes. Empathy is trained, not born.', say:'"That\u2019s a really thoughtful way to think about it."'},
+    {cat:"When they\u2019re upset", q:'"Where do you feel that in your body?"', why:'Children can point before they can name. Locating a feeling makes it manageable, not overwhelming.', say:'"That makes sense. Big feelings show up in our bodies."'},
+    {cat:"When they won\u2019t talk", q:'"If your day was a colour, what would it be?"', why:'Metaphor bypasses "I don\u2019t know" and opens a side door to how they really feel.', say:'"Tell me about that colour."'},
+    {cat:"When they\u2019ve given up", q:'"Which part can\u2019t you do?"', why:'"I can\u2019t" feels total. "Which part" breaks the impossible into a piece they can hold.', say:'"Show me the part where you got stuck."'},
+    {cat:"At bedtime", q:'"What made you laugh today?"', why:'Ends the day scanning for joy \u2014 when they tell you, they relive it.', say:'"Tell me. I want to hear it."'}
+  ];
+  const el = {cat:document.getElementById("qcCat"),q:document.getElementById("qcQ"),why:document.getElementById("qcWhy"),say:document.getElementById("qcSay"),card:document.getElementById("qcard"),dots:document.getElementById("qcDots")};
+  CARDS.forEach((_,i)=>{ const d=document.createElement("i"); if(i===0)d.className="on"; el.dots.appendChild(d); });
+  let ci=0;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function paint(i){
+    const c=CARDS[i];
+    el.cat.textContent=c.cat; el.q.textContent=c.q;
+    el.why.innerHTML='<b>Why it works:</b> '+c.why; el.say.textContent=c.say;
+    [...el.dots.children].forEach((d,j)=>d.className=j===i?"on":"");
+    if(!reduce){ el.card.classList.remove("qcard-fade"); void el.card.offsetWidth; el.card.classList.add("qcard-fade"); }
+  }
+  if(!reduce){ setInterval(()=>{ ci=(ci+1)%CARDS.length; paint(ci); }, 3600); }
+
+  const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });},{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
