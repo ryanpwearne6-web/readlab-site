@@ -261,7 +261,12 @@
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
     .reveal{opacity:1;transform:none}
-  }
+  }/* ===== CARD GRID: equal thirds on desktop, one tile on phones ===== */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .p-card{height:100%}
+  .p-actions{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+  .p-actions .btn{width:100%;justify-content:center}
+  @media(max-width:900px){ .cards{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
